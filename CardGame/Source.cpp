@@ -23,6 +23,14 @@ int main() {
 		deckOfCards[i + 39].suit = 'C';
 	}
 
+	card player1Hand[5];
+	card player2Hand[5];
+
+	int topCard = 0;
+
+	int p1Size = 0;
+	int p2Size = 0;
+
 	return 0;
 
 }
