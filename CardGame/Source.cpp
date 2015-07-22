@@ -23,6 +23,8 @@ int main() {
 		deckOfCards[i + 39].suit = 'C';
 	}
 
+	shuffle(deckOfCards, 52);
+
 	card player1Hand[5];
 	card player2Hand[5];
 
