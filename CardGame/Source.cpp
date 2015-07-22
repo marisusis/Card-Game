@@ -1,6 +1,6 @@
 ﻿#include "card.h"
 #include <iostream>
-#include <fstream>
+//#include <fstream>
 
 void deckCardsOut();
 card deckOfCards[52];
