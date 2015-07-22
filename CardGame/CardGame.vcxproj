@@ -58,7 +58,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <Version>1.0.0alpha</Version>
+      <Version />
+      <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <Manifest>
       <SuppressStartupBanner>false</SuppressStartupBanner>
