@@ -7,8 +7,11 @@ card player1Hand[5];
 
 int main() {
 
-	
-
+	//_setmode(_fileno(stdout), _O_U16TEXT);
+    wprintf(L"\u2660\u2666");
+	wchar_t c3 = L'\u03a0';   // OK
+   wchar_t c4 = L'\u0642';
+   cout << c3 << c4 << endl;
 	for (int i=0; i<13; i++) {
 		deckOfCards[i].value = i + 2;
 		deckOfCards[i].suit = '♠';
