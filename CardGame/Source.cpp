@@ -1,5 +1,6 @@
-#include <iostream>
 #include "card.h"
+#include <iostream>
+
 
 int main() {
 
