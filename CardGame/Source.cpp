@@ -6,9 +6,10 @@ void deckCardsOut();
 card deckOfCards[52];
 card playerHand[5];
 card dealerHand[5];
+void cardsOut(card cards[]);
 
 int main() {
-	#pragma execution_character_set("utf-8")
+	//#pragma execution_character_set("utf-8")
 	//_setmode(_fileno(stdout), _O_U16TEXT);
     //wprintf(L"\u2660\u2666");
 	/*wchar_t c3 = L'\u2660';   // OK
@@ -33,9 +34,6 @@ int main() {
 		deckOfCards[i + 39].suit = 'H';
 	}
 
-	for (int i=0; i<53; i++) {
-		cout << deckOfCards[i];
-	}
 	shuffle(deckOfCards, 52);
 
 	
@@ -62,23 +60,23 @@ int main() {
     cout << "Player's Hand" << endl;
     for (int i = 0; i < dSize; i++)
     {
-        cout << player1Hand[i].displayCard();
+        cout << playerHand[i].displayCard();
     }
     cout << endl << "Dealer's Hand" << endl;
     for (int i = 0; i < dSize; i++)
     {
-        cout << player2Hand[i].displayCard();
+        cout << dealerHand[i].displayCard();
     }
 	int p1Score = 0;
-    for (int i = 0; i < p1Size; i++)
+    for (int i = 0; i < pSize; i++)
     {
-        p1Score += player1Hand[i].value;
+        p1Score += playerHand[i].value;
     }
  
     int p2Score = 0;
-    for (int i = 0; i < p2Size; i++)
+    for (int i = 0; i < dSize; i++)
     {
-        p2Score += player2Hand[i].value;
+        p2Score += dealerHand[i].value;
     }
  
     if (p1Score > p2Score)
@@ -92,7 +90,10 @@ int main() {
 
 }
 void deckCardsOut() {
-	for (int i=0; i<53; i++) {
+	for (int i=0; i<52; i++) {
 		cout << deckOfCards[i].displayCard;
 	}
+}
+void cardsOut(card cards[]) {
+	for (int i=0; i<cards[
 }
