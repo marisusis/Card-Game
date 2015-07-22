@@ -31,6 +31,47 @@ int main() {
 	int p1Size = 0;
 	int p2Size = 0;
 
+	for (int i = 0; i < 5; i++)
+    {
+        player1Hand[i] = deckOfCards[topCard];
+        topCard++;
+        p1Size++;
+ 
+        player2Hand[i] = deckOfCards[topCard];
+        topCard++;
+        p2Size++;
+    }
+ 
+ 
+    cout << "Player 1's Hand" << endl;
+    for (int i = 0; i < p1Size; i++)
+    {
+        cout << player1Hand[i].displayCard();
+    }
+    cout << endl << "Player 2's Hand" << endl;
+    for (int i = 0; i < p2Size; i++)
+    {
+        cout << player2Hand[i].displayCard();
+    }
+	int p1Score = 0;
+    for (int i = 0; i < p1Size; i++)
+    {
+        p1Score += player1Hand[i].value;
+    }
+ 
+    int p2Score = 0;
+    for (int i = 0; i < p2Size; i++)
+    {
+        p2Score += player2Hand[i].value;
+    }
+ 
+    if (p1Score > p2Score)
+        cout << endl << "Player 1 wins!" << endl;
+    if (p2Score > p1Score)
+        cout << endl << "Player 2 wins!" << endl;
+    if (p1Score == p2Score)
+        cout << endl << "Its a tie" << endl;
+
 	return 0;
 
 }

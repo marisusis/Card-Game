@@ -1,4 +1,6 @@
 #include <string>
+#include <time.h>
+#include <cstdlib>
 
 using namespace std;
 
@@ -42,3 +44,15 @@ public:
 		return displayValue;
 	}
 };
+void shuffle(card deck[], int len)
+{
+    srand(time(NULL));
+	for (int i = 0; i < len; i++)
+    {
+        int r = rand() % (len - i) + i;
+ 
+        card temp = deck[i];
+        deck[i] = deck[r];
+        deck[r] = temp;
+    }
+}
