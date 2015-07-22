@@ -37,7 +37,7 @@ public:
 		if (value == 14) {
 			displayValue += "A";
 		}
-		displayValue += "-";
+		//displayValue += "-";
 		displayValue += suit;
 		displayValue += "]";
 
@@ -46,7 +46,7 @@ public:
 };
 void shuffle(card deck[], int len)
 {
-    srand(time(NULL));
+    srand((unsigned int)time(NULL));
 	for (int i = 0; i < len; i++)
     {
         int r = rand() % (len - i) + i;
