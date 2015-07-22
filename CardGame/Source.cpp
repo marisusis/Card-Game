@@ -4,8 +4,8 @@
 
 void deckCardsOut();
 card deckOfCards[52];
-card playerHand[5];
-card dealerHand[5];
+card playerHand[26];
+card dealerHand[26];
 void cardsOut(card cards[]);
 
 int main() {
@@ -15,23 +15,24 @@ int main() {
 	/*wchar_t c3 = L'\u2660';   // OK
    wchar_t c4 = L'\u0642';
    u16string spade;
+   cardsOut(desk
    cout << spade;
    cout << c3 << c4 << endl;*/
 	for (int i=0; i<13; i++) {
 		deckOfCards[i].value = i + 2;
-		deckOfCards[i].suit = '\xE2\x99\xA0';
+		deckOfCards[i].suit = '\x03';
 	}
 	for (int i=0; i<13; i++) {
 		deckOfCards[i + 13].value = i + 2;
-		deckOfCards[i + 13].suit = 'D';
+		deckOfCards[i + 13].suit = '\x04';
 	}
 	for (int i=0; i<13; i++) {
 		deckOfCards[i + 26].value = i + 2;
-		deckOfCards[i + 26].suit = 'C';
+		deckOfCards[i + 26].suit = '\x05';
 	}
 	for (int i=0; i<13; i++) {
 		deckOfCards[i + 39].value = i + 2;
-		deckOfCards[i + 39].suit = 'H';
+		deckOfCards[i + 39].suit = '\x06';
 	}
 
 	shuffle(deckOfCards, 52);
@@ -91,9 +92,11 @@ int main() {
 }
 void deckCardsOut() {
 	for (int i=0; i<52; i++) {
-		cout << deckOfCards[i].displayCard;
+		cout << deckOfCards[i].displayCard();
 	}
 }
 void cardsOut(card cards[]) {
-	for (int i=0; i<cards[
+	for (int i=0; i<sizeof(cards)/sizeof(*cards); i++) {
+		cout << "a" << endl;
+	}
 }
