@@ -26,13 +26,13 @@ public:
 	game() {
 
 	}
-	
+
 	game(string myGame) {
 		name = myGame;
 	}
 	card deck[52];
 	void init() {
-		
+
 	}
 
 	int checkWinner() {
@@ -53,30 +53,35 @@ public:
 		return p2Score;
 	}
 	void setPlayer1Score(int score) {
-			p1Score = score; 
+		p1Score = score; 
 	}
 	void setPlayer2Score(int score) {
 		p2Score = score;
 	}
 	void clearScreen() {
-		#ifdef _WIN32
+#ifdef _WIN32
 		std::system ( "CLS" );
-		#else
+#else
 		// Assume POSIX
 		std::system ( "clear" );
-		#endif
+#endif
 
 	}
-	void sleep(char unit, int time) {
+	void sleep(int unit, int time) {
 		try {
 			switch (unit) {
-			case 'm':
+			case 1:
+				this_thread::sleep_for(std::chrono::hours(400));
+				break;
+			case 2:
+				this_thread::sleep_for(std::chrono::milliseconds(400));
 				break;
 			default:
+				throw unit;
 				break;
 			}
-		} catch (bad_typeid) {
-			cout << "Unknown value provided";
+		} catch (int unit) {
+			cout << "Unknown value provided: " << unit << endl;
 		}
 	}
 	void Deal(int cardsToDeal) {
