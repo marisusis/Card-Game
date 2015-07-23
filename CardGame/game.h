@@ -19,6 +19,9 @@ class game {
 private:
 	string name;
 	string author;
+	
+	
+	//bool useLogo;
 	string p1Name;
 	string p2Name;
 	int p1Score;
@@ -27,12 +30,15 @@ private:
 	card dealerHand[7];
 public:
 	game() {
-
+		name = "CardGame";
+		author = "spacegeek224";
+		//useLogo = true;
 	}
 
-	game(string gameName, string gameAuthor) {
+	game(string gameName, string gameAuthor/*, bool l*/) {
 		name = gameName;
 		author = gameAuthor;
+		//useLogo = l;
 	}
 	card cardDeck[52];
 	void init() {
@@ -43,6 +49,32 @@ public:
 		cout << "This version of " << name << " was developed by " << author << "." << endl;
 		sleep(3, 2);
 		clearScreen();
+		cout << "Player 1 enter your name: ";
+		cin >> p1Name;
+		cout << endl;
+		clearScreen();
+		cout << "Player 2 enter your name: ";
+		cin >> p2Name;
+		cout << endl;
+		clearScreen();
+	}
+	//Logo file must be called logo.txt
+	/*void setLogo() {
+		ofstream logoFileOut("logo.txt");
+		logoFile.open("logo.txt");
+		logoFile 
+	}*/
+
+	//Logo file must be called logo.txt
+	string displayLogo() {
+		string line;
+		ifstream logoFile("logo.txt");
+		if (logoFileIn.is_open()) {
+			while (getline(logoFile,line)) {
+
+			}
+		}
+		
 	}
 
 	int checkWinner() {
