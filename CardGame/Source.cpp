@@ -2,5 +2,7 @@
 
 int main() {
 	game blackjack = game("Blackjack");
-	blackjack
+	blackjack.setPlayer1Score(4);
+	cout << blackjack.getPlayer1Score() << endl;
+	return 10000;
 }

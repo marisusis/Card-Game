@@ -5,6 +5,7 @@
 #include <io.h>
 #include <stdio.h>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -28,15 +29,28 @@ public:
 		
 	}
 
-	void checkScore(/*int pScore, int dScore*/) {
+	int checkWinner() {
 		if (p1Score > p2Score) {
-			cout << endl << "Player wins!" << endl;
+			return 1;
 		}
 		if (p2Score > p1Score) {
-			cout << endl << "Dealer wins!" << endl;
+			return 2;
 		}
 		if (p1Score == p2Score) {
-			cout << endl << "Its a tie" << endl;
+			return 0;
 		}
 	}
+	int getPlayer1Score() {
+		return p1Score;
+	}
+	int getPlayer2Score() {
+		return p2Score;
+	}
+	void setPlayer1Score(int score) {
+		p1Score = score;
+	}
+	void setPlayer1Score(int score) {
+		p2Score = score;
+	}
+
 };
