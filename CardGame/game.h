@@ -18,6 +18,7 @@ class game {
 	//TODO add in exception catching
 private:
 	string name;
+	string author;
 	int p1Score;
 	int p2Score;
 	card playerHand[7];
@@ -27,11 +28,16 @@ public:
 
 	}
 
-	game(string myGame) {
-		name = myGame;
+	game(string gameName, string gameAuthor) {
+		name = gameName;
+		author = gameAuthor;
 	}
 	card cardDeck[52];
 	void init() {
+		cout << "Welcome to " << name << "!" << endl;
+		sleep(3, 2);
+		clearScreen
+		cout << "This version of " << name << " was developed by " << author << "." << endl;
 		loadDeck(cardDeck);
 	}
 
