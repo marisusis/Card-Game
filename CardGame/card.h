@@ -1,9 +1,4 @@
-#include <string>
-#include <time.h>
-#include <cstdlib>
-#include <fcntl.h>
-#include <io.h>
-#include <stdio.h>
+#include "game.h"
 
 using namespace std;
 
