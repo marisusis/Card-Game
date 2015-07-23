@@ -49,7 +49,7 @@ public:
 	void setPlayer1Score(int score) {
 		p1Score = score;
 	}
-	void setPlayer1Score(int score) {
+	void setPlayer2Score(int score) {
 		p2Score = score;
 	}
 
