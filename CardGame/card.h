@@ -6,9 +6,11 @@ class card {
 
 public:
 	//Varibles
+	/*card playerHand[];
+	card dealerHand[];*/
 	int value;
 	char suit;
-
+	
 	//Constructors
 	card() {
 		value = 14;
@@ -45,16 +47,7 @@ public:
 
 };
 //Shuffle a deck
-void shuffle(card deck[], int len) {
-	srand((unsigned int)time(NULL));
-	for (int i = 0; i < len; i++) {
-		int r = rand() % (len - i) + i;
 
-		card temp = deck[i];
-		deck[i] = deck[r];
-		deck[r] = temp;
-	}
-}
 
 //Generate a deck
 void loadDeck(card deck[52]) {
@@ -75,7 +68,7 @@ void loadDeck(card deck[52]) {
 		deck[i + 39].suit = '\x06';
 	} 
 }
-void Deal(int cardsToDeal, card deck[52]) {
+/*void Deal(int cardsToDeal, card deck[52]) {
 	int topCard = 0;
 
 	int pSize = 0;
@@ -90,16 +83,6 @@ void Deal(int cardsToDeal, card deck[52]) {
 		topCard++;
 		dSize++;
 	}
-}
+}*/
 
-void checkScore(int pScore, int dScore) {
-	if (pScore > dScore) {
-		cout << endl << "Player wins!" << endl;
-	}
-	if (dScore > pScore) {
-		cout << endl << "Dealer wins!" << endl;
-	}
-	if (pScore == dScore) {
-		cout << endl << "Its a tie" << endl;
-	}
-}
+
