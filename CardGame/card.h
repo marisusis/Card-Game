@@ -108,9 +108,3 @@ void checkScore(int pScore, int dScore) {
 		cout << endl << "Its a tie" << endl;
 	}
 }
-void checkHand() {
-    for (int i = 0; i < dSize; i++)
-    {
-        cout << playerHand[i].displayCard();
-    }
-}

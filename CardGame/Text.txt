@@ -1,0 +1,9 @@
+//#pragma execution_character_set("utf-8")
+	//_setmode(_fileno(stdout), _O_U16TEXT);
+    //wprintf(L"\u2660\u2666");
+	//*wchar_t c3 = L'\u2660';   // OK
+   /*wchar_t c4 = L'\u0642';
+   u16string spade;
+   cardsOut(desk
+   cout << spade;
+   cout << c3 << c4 << endl;*/
