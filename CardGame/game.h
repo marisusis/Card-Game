@@ -53,9 +53,7 @@ public:
 		return p2Score;
 	}
 	void setPlayer1Score(int score) {
-		try {
 			p1Score = score; 
-		}
 	}
 	void setPlayer2Score(int score) {
 		p2Score = score;
