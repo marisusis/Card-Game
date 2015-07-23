@@ -19,6 +19,8 @@ class game {
 private:
 	string name;
 	string author;
+	string p1Name;
+	string p2Name;
 	int p1Score;
 	int p2Score;
 	card playerHand[7];
@@ -34,11 +36,13 @@ public:
 	}
 	card cardDeck[52];
 	void init() {
+		loadDeck(cardDeck);
 		cout << "Welcome to " << name << "!" << endl;
 		sleep(3, 2);
-		clearScreen
+		clearScreen();
 		cout << "This version of " << name << " was developed by " << author << "." << endl;
-		loadDeck(cardDeck);
+		sleep(3, 2);
+		clearScreen();
 	}
 
 	int checkWinner() {
@@ -64,6 +68,19 @@ public:
 	void setPlayer2Score(int score) {
 		p2Score = score;
 	}
+	string getPlayer1Name() {
+		return p1Name;
+	}
+	string getPlayer2Name() {
+		return p2Name;
+	}
+	void setPlayer1Name(int pname) {
+		p1Name = pname; 
+	}
+	void setPlayer2Name(int pname) {
+		p2Name = pname;
+	}
+
 	void clearScreen() {
 #ifdef _WIN32
 		std::system ( "CLS" );
