@@ -6,6 +6,9 @@
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
+#include <chrono>
+#include <thread>
+
 
 using namespace std;
 
@@ -51,6 +54,24 @@ public:
 	}
 	void setPlayer2Score(int score) {
 		p2Score = score;
+	}
+	void clearScreen() {
+		#ifdef _WIN32
+		std::system ( "CLS" );
+		#else
+		// Assume POSIX
+		std::system ( "clear" );
+		#endif
+
+	}
+	void sleep(char unit, int time) {
+		switch (unit)
+		{
+		default:
+			cerr << "Unknown value provided";
+			exit(1);
+			break;
+		}
 	}
 
 };

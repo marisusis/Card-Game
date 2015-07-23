@@ -1,8 +1,7 @@
 #include "game.h"
 
 int main() {
-	game blackjack = game("Blackjack");
-	blackjack.setPlayer1Score(4);
-	cout << blackjack.getPlayer1Score() << endl;
+	game gofish = game("Go Fish");
 	return 10000;
 }
+//this_thread::sleep_for(std::chrono::milliseconds(400));
