@@ -69,7 +69,7 @@ public:
 	string displayLogo() {
 		string line;
 		ifstream logoFile("logo.txt");
-		if (logoFileIn.is_open()) {
+		if (logoFile.is_open()) {
 			while (getline(logoFile,line)) {
 
 			}
