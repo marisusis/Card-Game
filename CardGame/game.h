@@ -71,10 +71,22 @@ public:
 		try {
 			switch (unit) {
 			case 1:
-				this_thread::sleep_for(std::chrono::hours(400));
+				this_thread::sleep_for(std::chrono::hours(time));
 				break;
 			case 2:
-				this_thread::sleep_for(std::chrono::milliseconds(400));
+				this_thread::sleep_for(std::chrono::minutes(time));
+				break;
+			case 3:
+				this_thread::sleep_for(std::chrono::seconds(time));
+				break;
+			case 4:
+				this_thread::sleep_for(std::chrono::milliseconds(time));
+				break;
+			case 5:
+				this_thread::sleep_for(std::chrono::microseconds(time));
+				break;
+			case 6:
+				this_thread::sleep_for(std::chrono::nanoseconds(time));
 				break;
 			default:
 				throw unit;

@@ -30,4 +30,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\cstdlib" />
+  </ItemGroup>
 </Project>
