@@ -8,6 +8,7 @@
 #include <fstream>
 #include <chrono>
 #include <thread>
+#include "card.h"
 
 
 using namespace std;
@@ -27,7 +28,7 @@ public:
 	game(string myGame) {
 		name = myGame;
 	}
-	
+	card deck[52];
 	void init() {
 		
 	}
@@ -50,7 +51,9 @@ public:
 		return p2Score;
 	}
 	void setPlayer1Score(int score) {
-		p1Score = score;
+		try {
+			p1Score = score; 
+		}
 	}
 	void setPlayer2Score(int score) {
 		p2Score = score;
@@ -67,11 +70,16 @@ public:
 	void sleep(char unit, int time) {
 		switch (unit)
 		{
+		case 'm':
+			break;
 		default:
 			cerr << "Unknown value provided";
 			exit(1);
 			break;
 		}
+	}
+	card deck[52] {
+
 	}
 
 };

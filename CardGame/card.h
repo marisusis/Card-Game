@@ -1,4 +1,13 @@
-#include "game.h"
+#include <string>
+#include <time.h>
+#include <cstdlib>
+#include <fcntl.h>
+#include <io.h>
+#include <stdio.h>
+#include <iostream>
+#include <fstream>
+#include <chrono>
+#include <thread>
 
 using namespace std;
 
