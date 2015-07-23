@@ -7,6 +7,8 @@ card deckOfCards[52];
 card playerHand[26];
 card dealerHand[26];
 void cardsOut(card cards[]);
+int dNumCards;
+int pNumCards;
 
 int main() {
 	//#pragma execution_character_set("utf-8")
@@ -95,8 +97,14 @@ void deckCardsOut() {
 		cout << deckOfCards[i].displayCard();
 	}
 }
-void cardsOut(card cards[]) {
-	for (int i=0; i<sizeof(cards)/sizeof(*cards); i++) {
-		cout << "a" << endl;
+void dCardsOut(card cards[]) {
+	for (int i=0; i<dNumCards; i++) {
+		cout << dealerHand[i].displayCard() << endl;
+	}
+}
+
+void pCardsOut(card cards[]) {
+	for (int i=0; i<pNumCards; i++) {
+		cout << playerHand[i].displayCard() << endl;
 	}
 }
