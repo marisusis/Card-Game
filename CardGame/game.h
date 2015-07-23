@@ -21,7 +21,7 @@ private:
 	string author;
 	
 	
-	//bool useLogo;
+	bool useLogo;
 	string p1Name;
 	string p2Name;
 	int p1Score;
@@ -32,18 +32,22 @@ public:
 	game() {
 		name = "CardGame";
 		author = "spacegeek224";
-		//useLogo = true;
+		useLogo = true;
 	}
 
-	game(string gameName, string gameAuthor/*, bool l*/) {
+	game(string gameName, string gameAuthor, bool l) {
 		name = gameName;
 		author = gameAuthor;
-		//useLogo = l;
+		useLogo = l;
 	}
 	card cardDeck[52];
 	void init() {
+
 		loadDeck(cardDeck);
-		cout << "Welcome to " << name << "!" << endl;
+		cout << "Welcome to..." << endl;
+		sleep(3, 2);
+		clearScreen();
+		displayLogo();
 		sleep(3, 2);
 		clearScreen();
 		cout << "This version of " << name << " was developed by " << author << "." << endl;
@@ -66,13 +70,14 @@ public:
 	}*/
 
 	//Logo file must be called logo.txt
-	string displayLogo() {
+	void displayLogo() {
 		string line;
 		ifstream logoFile("logo.txt");
 		if (logoFile.is_open()) {
 			while (getline(logoFile,line)) {
-
+				cout << line << endl;
 			}
+			logoFile.close();
 		}
 		
 	}
@@ -151,7 +156,7 @@ public:
 			cout << "Unknown value provided: " << unit << endl;
 		}
 	}
-	void Deal(int cardsToDeal) {
+	void deal(int cardsToDeal) {
 		int topCard = 0;
 
 		int pSize = 0;
@@ -165,6 +170,16 @@ public:
 			dealerHand[i] = cardDeck[topCard];
 			topCard++;
 			dSize++;
+		}
+	}
+	void displayAll(int cardsDealed) {
+		cout << "Player's Hand" << endl;
+		for (int i=0; i<cardsDealed; i++) {
+			cout << playerHand[i].displayCard() << endl;
+		}
+		cout << "Dealer's Hand" << endl;
+		for (int i=0; i<cardsDealed; i++) {
+			cout << dealerHand[i].displayCard() << endl;
 		}
 	}
 

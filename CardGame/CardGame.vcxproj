@@ -96,6 +96,7 @@
     <ClInclude Include="game.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="logo.txt" />
     <Text Include="Text.txt" />
   </ItemGroup>
   <ItemGroup>
