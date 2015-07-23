@@ -20,6 +20,8 @@ private:
 	string name;
 	int p1Score;
 	int p2Score;
+	card playerHand[7];
+	card dealerHand[7];
 public:
 	game() {
 
@@ -68,18 +70,32 @@ public:
 
 	}
 	void sleep(char unit, int time) {
-		switch (unit)
-		{
-		case 'm':
-			break;
-		default:
-			cerr << "Unknown value provided";
-			exit(1);
-			break;
+		try {
+			switch (unit) {
+			case 'm':
+				break;
+			default:
+				break;
+			}
+		} catch (bad_typeid) {
+			cout << "Unknown value provided";
 		}
 	}
-	card deck[52] {
+	void Deal(int cardsToDeal) {
+		int topCard = 0;
 
+		int pSize = 0;
+		int dSize = 0;
+		for (int i = 0; i < cardsToDeal; i++)
+		{
+			playerHand[i] = deck[topCard];
+			topCard++;
+			pSize++;
+
+			dealerHand[i] = deck[topCard];
+			topCard++;
+			dSize++;
+		}
 	}
 
 };
