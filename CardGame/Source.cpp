@@ -6,7 +6,8 @@ void deckCardsOut();
 card deckOfCards[52];
 card playerHand[26];
 card dealerHand[26];
-void cardsOut(card cards[]);
+void pCardsOut();
+void dCardsOut();
 int dNumCards;
 int pNumCards;
 
@@ -14,8 +15,8 @@ int main() {
 	//#pragma execution_character_set("utf-8")
 	//_setmode(_fileno(stdout), _O_U16TEXT);
     //wprintf(L"\u2660\u2666");
-	/*wchar_t c3 = L'\u2660';   // OK
-   wchar_t c4 = L'\u0642';
+	//*wchar_t c3 = L'\u2660';   // OK
+   /*wchar_t c4 = L'\u0642';
    u16string spade;
    cardsOut(desk
    cout << spade;
@@ -46,17 +47,18 @@ int main() {
 	int pSize = 0;
 	int dSize = 0;
 	bool dealing = true;
+	int numdeal = 0;
 	while (dealing)
     {
-		int i = 0;
-        playerHand[i] = deckOfCards[topCard];
+		
+        playerHand[numdeal] = deckOfCards[topCard];
         topCard++;
         pSize++;
  
-        dealerHand[i] = deckOfCards[topCard];
+        dealerHand[numdeal] = deckOfCards[topCard];
         topCard++;
         dSize++;
-		i++;
+		numdeal++;
     }
  
  
@@ -97,13 +99,13 @@ void deckCardsOut() {
 		cout << deckOfCards[i].displayCard();
 	}
 }
-void dCardsOut(card cards[]) {
+void dCardsOut() {
 	for (int i=0; i<dNumCards; i++) {
 		cout << dealerHand[i].displayCard() << endl;
 	}
 }
 
-void pCardsOut(card cards[]) {
+void pCardsOut() {
 	for (int i=0; i<pNumCards; i++) {
 		cout << playerHand[i].displayCard() << endl;
 	}
