@@ -58,23 +58,5 @@ public:
 //Shuffle a deck
 
 
-//Generate a deck
-
-/*void Deal(int cardsToDeal, card deck[52]) {
-	int topCard = 0;
-
-	int pSize = 0;
-	int dSize = 0;
-	for (int i = 0; i < cardsToDeal; i++)
-	{
-		playerHand[i] = deck[topCard];
-		topCard++;
-		pSize++;
-
-		dealerHand[i] = deck[topCard];
-		topCard++;
-		dSize++;
-	}
-}*/
 
 
