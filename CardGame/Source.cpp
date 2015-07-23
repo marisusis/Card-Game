@@ -67,28 +67,28 @@ int main() {
     {
         cout << playerHand[i].displayCard();
     }
-    cout << endl << "Dealer's Hand" << endl;
+    cout << "Dealer's Hand" << endl;
     for (int i = 0; i < dSize; i++)
     {
         cout << dealerHand[i].displayCard();
     }
-	int p1Score = 0;
+	int pScore = 0;
     for (int i = 0; i < pSize; i++)
     {
-        p1Score += playerHand[i].value;
+        pScore += playerHand[i].value;
     }
  
-    int p2Score = 0;
+    int dScore = 0;
     for (int i = 0; i < dSize; i++)
     {
-        p2Score += dealerHand[i].value;
+        dScore += dealerHand[i].value;
     }
  
-    if (p1Score > p2Score)
-        cout << endl << "Player 1 wins!" << endl;
-    if (p2Score > p1Score)
-        cout << endl << "Player 2 wins!" << endl;
-    if (p1Score == p2Score)
+    if (pScore > dScore)
+        cout << endl << "Player wins!" << endl;
+    if (dScore > pScore)
+        cout << endl << "Dealer wins!" << endl;
+    if (pScore == dScore)
         cout << endl << "Its a tie" << endl;
 
 	return 0;
