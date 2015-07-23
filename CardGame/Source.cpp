@@ -10,40 +10,6 @@ card dealerHand[26];
 //void dCardsOut();
 int dNumCards;
 int pNumCards;
-void loadDeck() {
-	for (int i=0; i<13; i++) {
-		deckOfCards[i].value = i + 2;
-		deckOfCards[i].suit = '\x03';
-	}
-	for (int i=0; i<13; i++) {
-		deckOfCards[i + 13].value = i + 2;
-		deckOfCards[i + 13].suit = '\x04';
-	}
-	for (int i=0; i<13; i++) {
-		deckOfCards[i + 26].value = i + 2;
-		deckOfCards[i + 26].suit = '\x05';
-	}
-	for (int i=0; i<13; i++) {
-		deckOfCards[i + 39].value = i + 2;
-	deckOfCards[i + 39].suit = '\x06';
-	} 
-}
-void deckCardsOut() {
-	for (int i=0; i<52; i++) {
-		cout << deckOfCards[i].displayCard() << endl;
-	}
-}
-void dCardsOut() {
-	for (int i=0; i<dNumCards; i++) {
-		cout << dealerHand[i].displayCard() << endl;
-	}
-}
-
-void pCardsOut() {
-	for (int i=0; i<pNumCards; i++) {
-		cout << playerHand[i].displayCard() << endl;
-	}
-}
 int main() {
 	//#pragma execution_character_set("utf-8")
 	//_setmode(_fileno(stdout), _O_U16TEXT);
@@ -54,49 +20,15 @@ int main() {
    cardsOut(desk
    cout << spade;
    cout << c3 << c4 << endl;*/
-	void loadDeck()
-	{
-		for (int i=0; i<13; i++) {
-			deckOfCards[i].value = i + 2;
-			deckOfCards[i].suit = '\x03';
-		}
-		for (int i=0; i<13; i++) {
-			deckOfCards[i + 13].value = i + 2;
-			deckOfCards[i + 13].suit = '\x04';
-		}
-		for (int i=0; i<13; i++) {
-			deckOfCards[i + 26].value = i + 2;
-			deckOfCards[i + 26].suit = '\x05';
-		}
-		for (int i=0; i<13; i++) {
-			deckOfCards[i + 39].value = i + 2;
-			deckOfCards[i + 39].suit = '\x06';
-		} 
-	}
-
-	shuffle(deckOfCards, 52);
+	card mycards = new card();
+	shuffle(my, 52);
 
 	
+	card asdf[123];
+	mycards.shuffle(asdf[], 123);
+	
 
-	int topCard = 0;
 
-	int pSize = 0;
-	int dSize = 0;
-	bool dealing = true;
-	int numdeal = 0;
-	while (dealing)
-    {
-		
-        playerHand[numdeal] = deckOfCards[topCard];
-        topCard++;
-        pSize++;
- 
-        dealerHand[numdeal] = deckOfCards[topCard];
-        topCard++;
-        dSize++;
-		numdeal++;
-    }
- 
  
     cout << "Player's Hand" << endl;
     for (int i = 0; i < dSize; i++)
@@ -120,12 +52,7 @@ int main() {
         dScore += dealerHand[i].value;
     }
  
-    if (pScore > dScore)
-        cout << endl << "Player wins!" << endl;
-    if (dScore > pScore)
-        cout << endl << "Dealer wins!" << endl;
-    if (pScore == dScore)
-        cout << endl << "Its a tie" << endl;
+   
 
 	return 0;
 
