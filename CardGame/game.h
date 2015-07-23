@@ -30,9 +30,9 @@ public:
 	game(string myGame) {
 		name = myGame;
 	}
-	card deck[52];
+	card cardDeck[52];
 	void init() {
-
+		loadDeck(cardDeck);
 	}
 
 	int checkWinner() {
@@ -103,11 +103,11 @@ public:
 		int dSize = 0;
 		for (int i = 0; i < cardsToDeal; i++)
 		{
-			playerHand[i] = deck[topCard];
+			playerHand[i] = cardDeck[topCard];
 			topCard++;
 			pSize++;
 
-			dealerHand[i] = deck[topCard];
+			dealerHand[i] = cardDeck[topCard];
 			topCard++;
 			dSize++;
 		}
