@@ -25,6 +25,7 @@
   <ItemGroup>
     <Text Include="Text.txt" />
     <Text Include="logo.txt" />
+    <Text Include="logo2.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">

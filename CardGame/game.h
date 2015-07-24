@@ -63,7 +63,7 @@ public:
 		loadDeck(cardDeck);
 		shuffle(cardDeck, 52);
 		cout << "Welcome to..." << endl;
-		sleep(3, 1);
+		sleep(3, 2);
 		clearScreen();
 		displayLogo();
 		cout << "This version of " << name << " was developed by " << author << "." << endl;
@@ -95,6 +95,20 @@ public:
 				cout << line << endl;
 			}
 			logoFile.close();
+		}
+		sleep(3,2);
+		int numline = 1;
+		ifstream logoFile2("logo2.txt");
+		if (logoFile2.is_open()) {
+			while (getline(logoFile2,line)) {
+				if (numline == 14 || numline == 27 || numline ==39) {
+					sleep(3,2);
+					clearScreen();
+				}
+				cout << line << endl;
+				numline++;
+			}
+			logoFile2.close();
 		}
 
 	}

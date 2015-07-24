@@ -19,7 +19,7 @@ public:
 	card dealerHand[];*/
 	int value;
 	char suit;
-	
+
 
 	//Constructors
 	card() {

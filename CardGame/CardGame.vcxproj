@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="logo.txt" />
+    <Text Include="logo2.txt" />
     <Text Include="Text.txt" />
   </ItemGroup>
   <ItemGroup>
