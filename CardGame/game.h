@@ -1,4 +1,5 @@
 #include <string>
+#include <Windows.h>
 #include <time.h>
 #include <cstdlib>
 #include <fcntl.h>
@@ -197,16 +198,16 @@ public:
 			cout << player2Hand[i].displayCard() << endl;
 		}
 	}
-	int sizeP1() {
+	int sizep1() {
 		return plr1Size;
 	}
-	int sizeP2() {
+	int sizep2() {
 		return plr2Size;
 	}
 
 };
-bool keyPress(char key) {
-	if ( GetAsyncKeyState( key ) & 0x8000 ) {
+bool keyPress(char keyPressed) {
+	if ( GetAsyncKeyState( keyPressed ) & 0x8000 ) {
 		return true;
 	}
 }
