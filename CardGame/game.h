@@ -96,7 +96,7 @@ public:
 			}
 			logoFile.close();
 		}
-		sleep(3,2);
+		/*sleep(3,2);
 		int numline = 1;
 		ifstream logoFile2("logo2.txt");
 		if (logoFile2.is_open()) {
@@ -109,7 +109,7 @@ public:
 				numline++;
 			}
 			logoFile2.close();
-		}
+		}*/
 
 	}
 

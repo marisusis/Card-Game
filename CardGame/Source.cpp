@@ -56,8 +56,8 @@ int main() {
 
 							//cout << gofish.plr1Name << "> Do you have any " << gofish.player1Hand[0].value << "s?" << endl;
 
-							gofish.displayp1();
-							gofish.displayp2();
+							//gofish.displayp1();
+							//gofish.displayp2();
 							bool cardFound = false;
 							for (int i=0; i<gofish.plr2Size; i++) {
 								cout << gofish.player1Hand[0].value << "|" << gofish.player2Hand[i].value << endl;
@@ -392,7 +392,8 @@ int main() {
 							}
 						}
 						break;
-					case '7':gofish.clearScreen();
+					case '7':
+						gofish.clearScreen();
 						if (gofish.plr1Size >= 8) {
 
 							//cout << gofish.plr1Name << "> Do you have any " << gofish.player1Hand[0].value << "s?" << endl;
