@@ -19,14 +19,14 @@ class game {
 private:
 	string name;
 	string author;
-	int p1Size;
-	int p2Size;
+	int plr1Size;
+	int plr2Size;
 
 	bool useLogo;
-	string p1Name;
-	string p2Name;
-	int p1Score;
-	int p2Score;
+	string plr1Name;
+	string plr2Name;
+	int plr1Score;
+	int plr2Score;
 	card player1Hand[26];
 	card player2Hand[26];
 public:
@@ -56,11 +56,11 @@ public:
 		sleep(3, 1);
 		clearScreen();
 		cout << "Player 1 enter your name: ";
-		cin >> p1Name;
+		cin >> plr1Name;
 		cout << endl;
 		clearScreen();
 		cout << "Player 2 enter your name: ";
-		cin >> p2Name;
+		cin >> plr2Name;
 		cout << endl;
 		clearScreen();
 	}
@@ -85,39 +85,39 @@ public:
 	}
 
 	int checkWinner() {
-		if (p1Score > p2Score) {
+		if (plr1Score > plr2Score) {
 			return 1;
 		}
-		if (p2Score > p1Score) {
+		if (plr2Score > plr1Score) {
 			return 2;
 		}
-		if (p1Score == p2Score) {
+		if (plr1Score == plr2Score) {
 			return 0;
 		}
 	}
-	int getPlayer1Score() {
-		return p1Score;
+	int p1Score() {
+		return plr1Score;
 	}
-	int getPlayer2Score() {
-		return p2Score;
+	int p2Score() {
+		return plr2Score;
 	}
 	void setPlayer1Score(int score) {
-		p1Score = score; 
+		plr1Score = score; 
 	}
 	void setPlayer2Score(int score) {
-		p2Score = score;
+		plr2Score = score;
 	}
-	string getP1Name() {
-		return p1Name;
+	string p1Name() {
+		return plr1Name;
 	}
-	string getP2Name() {
-		return p2Name;
+	string p2Name() {
+		return plr2Name;
 	}
 	void setPlayer1Name(int pname) {
-		p1Name = pname; 
+		plr1Name = pname; 
 	}
 	void setPlayer2Name(int pname) {
-		p2Name = pname;
+		plr2Name = pname;
 	}
 
 	void clearScreen() {
@@ -161,18 +161,18 @@ public:
 	void deal(int cardsToDeal) {
 		int topCard = 0;
 
-		p1Size = 0;
-		p2Size = 0;
+		plr1Size = 0;
+		plr2Size = 0;
 
 		for (int i = 0; i < cardsToDeal; i++)
 		{
 			player1Hand[i] = cardDeck[topCard];
 			topCard++;
-			p1Size++;
+			plr1Size++;
 
 			player2Hand[i] = cardDeck[topCard];
 			topCard++;
-			p2Size++;
+			plr2Size++;
 		}
 	}
 	void displayAll(int cardsDealed) {
@@ -198,10 +198,15 @@ public:
 		}
 	}
 	int sizeP1() {
-		return p1Size;
+		return plr1Size;
 	}
 	int sizeP2() {
-		return p2Size;
+		return plr2Size;
 	}
 
 };
+bool keyPress(char key) {
+	if ( GetAsyncKeyState( key ) & 0x8000 ) {
+		return true;
+	}
+}
