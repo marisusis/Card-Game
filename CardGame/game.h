@@ -19,15 +19,16 @@ class game {
 private:
 	string name;
 	string author;
-	
-	
+	int p1Size;
+	int p2Size;
+
 	bool useLogo;
 	string p1Name;
 	string p2Name;
 	int p1Score;
 	int p2Score;
-	card player1Hand[7];
-	card player2Hand[7];
+	card player1Hand[26];
+	card player2Hand[26];
 public:
 	game() {
 		name = "CardGame";
@@ -44,6 +45,7 @@ public:
 	void init() {
 
 		loadDeck(cardDeck);
+		shuffle(cardDeck, 52);
 		cout << "Welcome to..." << endl;
 		sleep(3, 1);
 		clearScreen();
@@ -64,9 +66,9 @@ public:
 	}
 	//Logo file must be called logo.txt
 	/*void setLogo() {
-		ofstream logoFileOut("logo.txt");
-		logoFile.open("logo.txt");
-		logoFile 
+	ofstream logoFileOut("logo.txt");
+	logoFile.open("logo.txt");
+	logoFile 
 	}*/
 
 	//Logo file must be called logo.txt
@@ -79,7 +81,7 @@ public:
 			}
 			logoFile.close();
 		}
-		
+
 	}
 
 	int checkWinner() {
@@ -105,10 +107,10 @@ public:
 	void setPlayer2Score(int score) {
 		p2Score = score;
 	}
-	string getPlayer1Name() {
+	string getP1Name() {
 		return p1Name;
 	}
-	string getPlayer2Name() {
+	string getP2Name() {
 		return p2Name;
 	}
 	void setPlayer1Name(int pname) {
@@ -159,8 +161,9 @@ public:
 	void deal(int cardsToDeal) {
 		int topCard = 0;
 
-		int p1Size = 0;
-		int p2Size = 0;
+		p1Size = 0;
+		p2Size = 0;
+
 		for (int i = 0; i < cardsToDeal; i++)
 		{
 			player1Hand[i] = cardDeck[topCard];
@@ -181,6 +184,24 @@ public:
 		for (int i=0; i<cardsDealed; i++) {
 			cout << player2Hand[i].displayCard() << endl;
 		}
+	}
+	void displayp1(int cardsDealed) {
+		cout << "Player 1's Hand" << endl;
+		for (int i=0; i<cardsDealed; i++) {
+			cout << player1Hand[i].displayCard() << endl;
+		}
+	}
+	void displayp2(int cardsDealed) {
+		cout << "Player 2's Hand" << endl;
+		for (int i=0; i<cardsDealed; i++) {
+			cout << player2Hand[i].displayCard() << endl;
+		}
+	}
+	int sizeP1() {
+		return p1Size;
+	}
+	int sizeP2() {
+		return p2Size;
 	}
 
 };
