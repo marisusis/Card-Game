@@ -166,26 +166,26 @@ public:
 	void deal(int cardsToDeal) {
 		topCard = 0;
 
-		plr1Size = 0;
-		plr2Size = 0;
+		plr1Size = 7;
+		plr2Size = 7;
 
 		for (int i = 0; i < cardsToDeal; i++)
 		{
 			player1Hand[i] = cardDeck[topCard];
 			topCard++;
-			plr1Size++;
+			//plr1Size++;
 
 			player2Hand[i] = cardDeck[topCard];
 			topCard++;
-			plr2Size++;
+			//plr2Size++;
 		}
 	}
 	void displayAll(int cardsDealed) {
-		cout << "Player 1's Hand" << endl;
+		cout << "Player 1's Hand - Score: " << plr1Score << endl;
 		for (int i=0; i<cardsDealed; i++) {
 			cout << player1Hand[i].displayCard() << endl;
 		}
-		cout << "Player 2's Hand" << endl;
+		cout << "Player 2's Hand - Score: " << plr2Score << endl;
 		for (int i=0; i<cardsDealed; i++) {
 			cout << player2Hand[i].displayCard() << endl;
 		}

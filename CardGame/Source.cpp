@@ -20,8 +20,11 @@ int main() {
 	SetConsoleMode( hstdin, 0 );
 	game gofish = game("Go Fish", "spacegeek224", true);
 	gofish.init();
+	
 	//MUST ADD SHUFFLE
 	gofish.deal(7);
+	//gofish.player1Hand[0] = card(1, '\x03');
+	//gofish.player2Hand[3] = card(1, '\x04');
 	//gofish.displayAll(7);
 	char key;
 	bool playing = true;
@@ -46,26 +49,42 @@ int main() {
 					case 'C':
 						counter++;
 						gofish.displayp1();
+						//gofish.displayp2();
 						break;
 					case '1':
 						gofish.clearScreen();
-						if (gofish.sizep1() >= 1) {
+						if (gofish.plr1Size >= 1) {
+
 							cout << gofish.p1Name() << "> Do you have any " << gofish.player1Hand[0].value << "s?" << endl;
-							for (int i=0; i<gofish.sizep2(); i++) {
+
+							gofish.displayp1();
+							gofish.displayp2();
+							for (int i=0; i<gofish.plr2Size; i++) {
+								cout << gofish.player1Hand[0].value << "|" << gofish.player2Hand[4].value << endl;
 								if (gofish.player1Hand[0].value == gofish.player2Hand[i].value) {
+
 									cout << gofish.p2Name() << "> Yes, I have a/an" << gofish.player1Hand[0].value << " card." << endl;
+
+									gofish.player1Hand[0] = card(NULL, NULL);
 									gofish.player2Hand[i] = card(NULL, NULL);
-									for (i=0; i<gofish.sizep1(); i++) {
-										if (gofish.player1Hand[i].value == NULL && gofish.player1Hand[i].suit == NULL) {
-											gofish.player1Hand[i] = gofish.player1Hand[i+1];
-											gofish.player1Hand[i+1] = card(NULL, NULL); 
+
+									for (int j=0; j<gofish.sizep1(); j++) {
+
+										if (gofish.player1Hand[j].value == NULL && gofish.player1Hand[j].suit == NULL) {
+											gofish.player1Hand[j] = gofish.player1Hand[j+1];
+											gofish.player1Hand[j+1] = card(NULL, NULL); 
+
 										}
+
 									}
-									for (i=0; i<gofish.sizep2(); i++) {
-										if (gofish.player2Hand[i].value == NULL && gofish.player2Hand[i].suit == NULL) {
-											gofish.player2Hand[i] = gofish.player2Hand[i+1];
-											gofish.player2Hand[i+1] = card(NULL, NULL);
+									for (int j=0; j<gofish.sizep2(); j++) {
+
+										if (gofish.player2Hand[j].value == NULL && gofish.player2Hand[j].suit == NULL) {
+											gofish.player2Hand[j] = gofish.player2Hand[j+1];
+											gofish.player2Hand[j+1] = card(NULL, NULL);
+
 										}
+
 									}
 									gofish.plr1Score++;
 									gofish.displayp1();
