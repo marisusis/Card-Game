@@ -26,8 +26,8 @@ private:
 	string p2Name;
 	int p1Score;
 	int p2Score;
-	card playerHand[7];
-	card dealerHand[7];
+	card player1Hand[7];
+	card player2Hand[7];
 public:
 	game() {
 		name = "CardGame";
@@ -45,13 +45,13 @@ public:
 
 		loadDeck(cardDeck);
 		cout << "Welcome to..." << endl;
-		sleep(3, 2);
+		sleep(3, 1);
 		clearScreen();
 		displayLogo();
-		sleep(3, 2);
+		sleep(3, 1);
 		clearScreen();
 		cout << "This version of " << name << " was developed by " << author << "." << endl;
-		sleep(3, 2);
+		sleep(3, 1);
 		clearScreen();
 		cout << "Player 1 enter your name: ";
 		cin >> p1Name;
@@ -159,27 +159,27 @@ public:
 	void deal(int cardsToDeal) {
 		int topCard = 0;
 
-		int pSize = 0;
-		int dSize = 0;
+		int p1Size = 0;
+		int p2Size = 0;
 		for (int i = 0; i < cardsToDeal; i++)
 		{
-			playerHand[i] = cardDeck[topCard];
+			player1Hand[i] = cardDeck[topCard];
 			topCard++;
-			pSize++;
+			p1Size++;
 
-			dealerHand[i] = cardDeck[topCard];
+			player2Hand[i] = cardDeck[topCard];
 			topCard++;
-			dSize++;
+			p2Size++;
 		}
 	}
 	void displayAll(int cardsDealed) {
-		cout << "Player's Hand" << endl;
+		cout << "Player 1's Hand" << endl;
 		for (int i=0; i<cardsDealed; i++) {
-			cout << playerHand[i].displayCard() << endl;
+			cout << player1Hand[i].displayCard() << endl;
 		}
-		cout << "Dealer's Hand" << endl;
+		cout << "Player 2's Hand" << endl;
 		for (int i=0; i<cardsDealed; i++) {
-			cout << dealerHand[i].displayCard() << endl;
+			cout << player2Hand[i].displayCard() << endl;
 		}
 	}
 

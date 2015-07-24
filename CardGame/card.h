@@ -58,7 +58,7 @@ public:
 
 };
 //Shuffle a deck
-void shuffle(card deck[], int len) {
+void shuffle(card deck[25]) {
 	srand((unsigned int)time(NULL));
 	for (int i = 0; i < len; i++) {
 		int r = rand() % (len - i) + i;
