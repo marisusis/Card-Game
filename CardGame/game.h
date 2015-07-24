@@ -20,14 +20,12 @@ class game {
 private:
 	string name;
 	string author;
-	int plr1Size;
-	int plr2Size;
+	
 
 	bool useLogo;
 	string plr1Name;
 	string plr2Name;
-	int plr1Score;
-	int plr2Score;
+	
 	
 public:
 	game() {
@@ -44,8 +42,14 @@ public:
 	card player1Hand[52];
 	card player2Hand[52];
 	card cardDeck[52];
+	int topCard;
+	int plr1Size;
+	int plr2Size;
+	int plr1Score;
+	int plr2Score;
 	void init() {
-
+		plr1Score = 0;
+		plr2Score = 0;
 		loadDeck(cardDeck);
 		shuffle(cardDeck, 52);
 		cout << "Welcome to..." << endl;
@@ -56,11 +60,12 @@ public:
 		sleep(3, 1);
 		clearScreen();
 		cout << "Player 1 enter your name: ";
-		cin >> plr1Name;
+		getline(cin, plr1Name);
 		cout << endl;
 		clearScreen();
+		//cin.get();
 		cout << "Player 2 enter your name: ";
-		cin >> plr2Name;
+		getline(cin, plr2Name);
 		cout << endl;
 		clearScreen();
 	}
@@ -159,7 +164,7 @@ public:
 		}
 	}
 	void deal(int cardsToDeal) {
-		int topCard = 0;
+		topCard = 0;
 
 		plr1Size = 0;
 		plr2Size = 0;
@@ -185,15 +190,15 @@ public:
 			cout << player2Hand[i].displayCard() << endl;
 		}
 	}
-	void displayp1(int cardsDealed) {
+	void displayp1(/*int cardsDealed*/) {
 		cout << "Player 1's Hand" << endl;
-		for (int i=0; i<cardsDealed; i++) {
+		for (int i=0; i<plr1Size; i++) {
 			cout << player1Hand[i].displayCard() << endl;
 		}
 	}
-	void displayp2(int cardsDealed) {
+	void displayp2(/*int cardsDealed*/) {
 		cout << "Player 2's Hand" << endl;
-		for (int i=0; i<cardsDealed; i++) {
+		for (int i=0; i<plr2Size; i++) {
 			cout << player2Hand[i].displayCard() << endl;
 		}
 	}

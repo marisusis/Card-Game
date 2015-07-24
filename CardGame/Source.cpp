@@ -45,22 +45,39 @@ int main() {
 				{
 					case 'C':
 						counter++;
-						gofish.displayp1(gofish.sizep1());
+						gofish.displayp1();
 						break;
 					case '1':
 						gofish.clearScreen();
 						if (gofish.sizep1() >= 1) {
-							cout << gofish.p1Name() << "> Do you have any " << gofish.player1Hand[0].value << "?" << endl;
+							cout << gofish.p1Name() << "> Do you have any " << gofish.player1Hand[0].value << "s?" << endl;
 							for (int i=0; i<gofish.sizep2(); i++) {
 								if (gofish.player1Hand[0].value == gofish.player2Hand[i].value) {
+									cout << gofish.p2Name() << "> Yes, I have a/an" << gofish.player1Hand[0].value << " card." << endl;
 									gofish.player2Hand[i] = card(NULL, NULL);
 									for (i=0; i<gofish.sizep1(); i++) {
-										gofish.player1Hand[i] = gofish.player1Hand[i+1];
-										gofish.player1Hand[i+1] = card(NULL, NULL);
-										gofish.player2Hand[i] = gofish.player2Hand[i+1];
-										gofish.player2Hand[i+1] = card(NULL, NULL);
+										if (gofish.player1Hand[i].value == NULL && gofish.player1Hand[i].suit == NULL) {
+											gofish.player1Hand[i] = gofish.player1Hand[i+1];
+											gofish.player1Hand[i+1] = card(NULL, NULL); 
+										}
 									}
-									
+									for (i=0; i<gofish.sizep2(); i++) {
+										if (gofish.player2Hand[i].value == NULL && gofish.player2Hand[i].suit == NULL) {
+											gofish.player2Hand[i] = gofish.player2Hand[i+1];
+											gofish.player2Hand[i+1] = card(NULL, NULL);
+										}
+									}
+									gofish.plr1Score++;
+									gofish.displayp1();
+									gofish.displayp2();
+								} else {
+									cout << gofish.p2Name() << "> No, I do not have any " << gofish.player1Hand[0].value << " cards. Go Fish!" << endl;
+									gofish.player1Hand[gofish.sizep1() + 1] = gofish.cardDeck[gofish.topCard];
+									gofish.topCard++;
+									gofish.plr1Size++;
+									gofish.displayp1();
+									gofish.displayp2();
+									cin.get();
 								}
 							}
 						}
