@@ -28,8 +28,8 @@ private:
 	string plr2Name;
 	int plr1Score;
 	int plr2Score;
-	card player1Hand[26];
-	card player2Hand[26];
+	card player1Hand[52];
+	card player2Hand[52];
 public:
 	game() {
 		name = "CardGame";

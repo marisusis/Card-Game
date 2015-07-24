@@ -21,14 +21,14 @@ int main() {
 	gofish.init();
 	//MUST ADD SHUFFLE
 	gofish.deal(7);
-	gofish.displayAll(7);
+	//gofish.displayAll(7);
 	gofish.sleep(3,2);
 	char key;
 	bool playing = true;
 	while (playing) {
 
 		/* Give the user instructions */
-		cout << "Press \"C\" to view your hand." << endl << "Press \"ESC\" to exit." << endl;
+		cout << "Press \"C\" to view your hand." << endl << "Press \"1-"<< gofish.sizep1() << "\" tochoose a card." << endl << "Press \"ESC\" to exit" << endl;
 		while (!done)
 		{
 			if (WaitForSingleObject( hstdin, 0 ) == WAIT_OBJECT_0)  /* if kbhit */
@@ -46,6 +46,14 @@ int main() {
 					case 'C':
 						counter++;
 						gofish.displayp1(gofish.sizep1());
+						break;
+					case '1':
+					case '2':
+					case '3':
+					case '4':
+					case '5':
+					case '6':
+
 					case VK_ESCAPE:
 						counter++;
 						done = true;
