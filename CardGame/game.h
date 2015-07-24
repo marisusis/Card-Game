@@ -28,8 +28,7 @@ private:
 	string plr2Name;
 	int plr1Score;
 	int plr2Score;
-	card player1Hand[52];
-	card player2Hand[52];
+	
 public:
 	game() {
 		name = "CardGame";
@@ -42,6 +41,8 @@ public:
 		author = gameAuthor;
 		useLogo = l;
 	}
+	card player1Hand[52];
+	card player2Hand[52];
 	card cardDeck[52];
 	void init() {
 
@@ -51,8 +52,6 @@ public:
 		sleep(3, 1);
 		clearScreen();
 		displayLogo();
-		sleep(3, 1);
-		clearScreen();
 		cout << "This version of " << name << " was developed by " << author << "." << endl;
 		sleep(3, 1);
 		clearScreen();
