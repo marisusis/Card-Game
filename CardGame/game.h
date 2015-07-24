@@ -18,15 +18,9 @@ class game {
 
 	//TODO add in exception catching
 private:
-	string name;
-	string author;
-	
 
-	bool useLogo;
-	string plr1Name;
-	string plr2Name;
-	
-	
+
+
 public:
 	game() {
 		name = "CardGame";
@@ -39,8 +33,16 @@ public:
 		author = gameAuthor;
 		useLogo = l;
 	}
+
 	card player1Hand[52];
 	card player2Hand[52];
+	string name;
+	string author;
+
+
+	bool useLogo;
+	string plr1Name;
+	string plr2Name;
 	card cardDeck[52];
 	int topCard;
 	int plr1Size;
@@ -48,8 +50,16 @@ public:
 	int plr1Score;
 	int plr2Score;
 	void init() {
+		for (int i=0; i<52; i++) {
+			//cout << player1Hand[i].displayCard() << endl;
+			player1Hand[i] = card(NULL, NULL);
+			//cout << player2Hand[i].displayCard() << endl;
+			player2Hand[i] = card(NULL, NULL);
+		}
 		plr1Score = 0;
 		plr2Score = 0;
+		plr1Size = 7;
+		plr2Size = 7;
 		loadDeck(cardDeck);
 		shuffle(cardDeck, 52);
 		cout << "Welcome to..." << endl;
@@ -100,23 +110,11 @@ public:
 			return 0;
 		}
 	}
-	int p1Score() {
-		return plr1Score;
-	}
-	int p2Score() {
-		return plr2Score;
-	}
 	void setPlayer1Score(int score) {
 		plr1Score = score; 
 	}
 	void setPlayer2Score(int score) {
 		plr2Score = score;
-	}
-	string p1Name() {
-		return plr1Name;
-	}
-	string p2Name() {
-		return plr2Name;
 	}
 	void setPlayer1Name(int pname) {
 		plr1Name = pname; 
@@ -166,18 +164,18 @@ public:
 	void deal(int cardsToDeal) {
 		topCard = 0;
 
-		plr1Size = 7;
-		plr2Size = 7;
+		plr1Size = 0;
+		plr2Size = 0;
 
 		for (int i = 0; i < cardsToDeal; i++)
 		{
 			player1Hand[i] = cardDeck[topCard];
 			topCard++;
-			//plr1Size++;
+			plr1Size++;
 
 			player2Hand[i] = cardDeck[topCard];
 			topCard++;
-			//plr2Size++;
+			plr2Size++;
 		}
 	}
 	void displayAll(int cardsDealed) {
@@ -191,22 +189,20 @@ public:
 		}
 	}
 	void displayp1(/*int cardsDealed*/) {
-		cout << "Player 1's Hand" << endl;
+		cout << "Player 1's Hand | Score: " << plr1Score << endl;
 		for (int i=0; i<plr1Size; i++) {
-			cout << player1Hand[i].displayCard() << endl;
+			if (!(player1Hand[i].value == NULL && player1Hand[i].suit == NULL) || !(player1Hand[i].value == NULL || player1Hand[i].suit == NULL)) {
+				cout << player1Hand[i].displayCard() << endl;
+			}
 		}
 	}
 	void displayp2(/*int cardsDealed*/) {
-		cout << "Player 2's Hand" << endl;
+		cout << "Player 2's Hand | Score: " << plr2Score << endl;
 		for (int i=0; i<plr2Size; i++) {
-			cout << player2Hand[i].displayCard() << endl;
+			if (!(player1Hand[i].value == NULL && player1Hand[i].suit == NULL) || !(player1Hand[i].value == NULL || player1Hand[i].suit == NULL)) {
+				cout << player2Hand[i].displayCard() << endl;
+			}
 		}
-	}
-	int sizep1() {
-		return plr1Size;
-	}
-	int sizep2() {
-		return plr2Size;
 	}
 
 };

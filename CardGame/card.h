@@ -23,8 +23,8 @@ public:
 
 	//Constructors
 	card() {
-		value = 14;
-		suit = 'S';
+		value = 0;
+		suit = '\x03';
 	}
 
 	card(int v, char s) {
@@ -33,7 +33,7 @@ public:
 	}
 	string displayCard() {
 		string displayValue = "[";
-		if (value < 11) {
+		if (value < 11 && value != 1) {
 			displayValue += to_string(value);
 		}
 		if (value == 11) {
@@ -45,7 +45,7 @@ public:
 		if (value == 13) {
 			displayValue += "K";
 		}
-		if (value == 14) {
+		if (value == 1) {
 			displayValue += "A";
 		}
 		//displayValue += "-";
@@ -70,19 +70,19 @@ void shuffle(card deck[], int len) {
 //Generate a deck
 void loadDeck(card deck[52]) {
 	for (int i=0; i<13; i++) {
-		deck[i].value = i + 2;
+		deck[i].value = i + 1;
 		deck[i].suit = '\x03';
 	}
 	for (int i=0; i<13; i++) {
-		deck[i + 13].value = i + 2;
+		deck[i + 13].value = i + 1;
 		deck[i + 13].suit = '\x04';
 	}
 	for (int i=0; i<13; i++) {
-		deck[i + 26].value = i + 2;
+		deck[i + 26].value = i + 1;
 		deck[i + 26].suit = '\x05';
 	}
 	for (int i=0; i<13; i++) {
-		deck[i + 39].value = i + 2;
+		deck[i + 39].value = i + 1;
 		deck[i + 39].suit = '\x06';
 	}
 }
