@@ -53,9 +53,13 @@ int main() {
 							cout << gofish.p1Name() << "> Do you have any " << gofish.player1Hand[0].value << "?" << endl;
 							for (int i=0; i<gofish.sizep2(); i++) {
 								if (gofish.player1Hand[0].value == gofish.player2Hand[i].value) {
-									gofish.player2Hand[i].value = NULL;
-									gofish.player2Hand[i].suit = NULL;
-									for (i=0; i<gofish.sizep1();
+									gofish.player2Hand[i] = card(NULL, NULL);
+									for (i=0; i<gofish.sizep1(); i++) {
+										gofish.player1Hand[i] = gofish.player1Hand[i+1];
+										gofish.player1Hand[i+1] = card(NULL, NULL);
+										gofish.player2Hand[i] = gofish.player2Hand[i+1];
+										gofish.player2Hand[i+1] = card(NULL, NULL);
+									}
 									
 								}
 							}
